@@ -1,0 +1,11 @@
+{
+  "name": "singleton-pubsub",
+  "version": "0.0.1",
+  "description": "Simple pub/sub interface wrapped in a singleton",
+  "main": "index.js",
+  "author": "john.n.sylvain@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
