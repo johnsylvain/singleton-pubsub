@@ -46,10 +46,12 @@
     return this;
   }
 
-  SingletonPubsub.prototype.emit = function (eventName, data) {
+  SingletonPubsub.prototype.emit = function (eventName, data, context) {
+    context = context || undefined;
+
     if (this.events[eventName]) {
       this.events[eventName].forEach(function (fn) {
-        fn(data);
+        fn.call(context, data);
       });
     }
 
