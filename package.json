@@ -6,11 +6,19 @@
   "author": "john.n.sylvain@gmail.com",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/.bin/jest test.js"
+    "test": "./node_modules/.bin/jest test.js",
+    "size": "./node_modules/.bin/size-limit"
   },
+  "size-limit": [
+    {
+      "path": "index.js",
+      "limit": "300 B"
+    }
+  ],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "size-limit": "^0.13.1"
   }
 }
