@@ -3,7 +3,9 @@ import SingletonPubsub from './index';
 describe('SingletonPubsub', function() {
 
     beforeEach(() => {
-        this.pubsub = new SingletonPubsub();
+        this.pubsub = new SingletonPubsub({
+            reinstantiate: true
+        });
     });
 
     describe('Instance', () => {
@@ -18,7 +20,8 @@ describe('SingletonPubsub', function() {
         });
 
         it ('should return the same instance with same events', () => {
-            this.pubsub.on('event', () => {});
+            this.pubsub
+                .on('event', () => {});
 
             const newInstance = new SingletonPubsub();
 
@@ -28,12 +31,39 @@ describe('SingletonPubsub', function() {
 
     describe('Pubsub', () => {
         it('should add events', () => {
-            this.pubsub.on('event', () => {});
+            this.pubsub
+                .on('event', () => {});
 
             const length = Object.keys(this.pubsub.events).length;
 
             expect(length).toBe(1);
-        })
-    })
+        });
 
-})
+        it('should emit events', () => {
+            this.pubsub
+                .on('event', ({ message }) =>{
+                    expect(message).toBe('event fired!')
+                })
+                .emit('event', {
+                    message: 'event fired!'
+                });
+        });
+
+        it('should emit multiple events', () => {
+            this.pubsub
+                .on('event', ({ message }) => {
+                    expect(message).toBe('an event fired');
+                })
+                .on('event', ({ alert }) => {
+                    expect(alert).toBe('alert!');
+                });
+
+            this.pubsub
+                .emit('event', {
+                    message: 'an event fired',
+                    alert: 'alert!'
+                })
+        })
+    });
+
+});

@@ -14,8 +14,11 @@
 
   var instance;
 
-  var SingletonPubsub = function () {
-    if (typeof instance === 'object') {
+  var SingletonPubsub = function (options) {
+    // set options
+    var reinstantiate = options && options.reinstantiate || false;
+
+    if (typeof instance === 'object' && !reinstantiate) {
       return instance;
     }
 
