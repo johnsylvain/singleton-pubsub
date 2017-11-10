@@ -15,6 +15,14 @@ describe('SingletonPubsub', function() {
             const newInstance = new SingletonPubsub();
     
             expect(this.pubsub).toBe(newInstance);
+        });
+
+        it ('should return the same instance with same events', () => {
+            this.pubsub.on('event', () => {});
+
+            const newInstance = new SingletonPubsub();
+
+            expect(this.pubsub.events).toBe(newInstance.events);
         })
     });
 
