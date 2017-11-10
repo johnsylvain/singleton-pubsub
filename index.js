@@ -55,4 +55,6 @@
     return this;
   }
 
+  return SingletonPubsub;
+
 });
