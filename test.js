@@ -8,7 +8,7 @@ describe('SingletonPubsub', function() {
         });
     });
 
-    describe('Instance', () => {
+    describe('Instance: Singleton tests', () => {
         it('should create a new instance', () => {
             expect(this.pubsub).toBeInstanceOf(SingletonPubsub);
         });
@@ -29,7 +29,7 @@ describe('SingletonPubsub', function() {
         })
     });
 
-    describe('Pubsub', () => {
+    describe('Pubsub: event tests', () => {
         it('should add events', () => {
             this.pubsub
                 .on('event', () => {});
