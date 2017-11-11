@@ -1,12 +1,12 @@
 # Singleton Pubsub
 [![Travis](https://img.shields.io/travis/johnsylvain/singleton-pubsub.svg)](https://travis-ci.org/johnsylvain/singleton-pubsub)
 [![npm](https://img.shields.io/npm/v/singleton-pubsub.svg)](https://npmjs.org/package/singleton-pubsub)
-![dependancies](https://img.shields.io/badge/dependancies-zero-brightgreen.svg)
+![dependancies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)
 > A performant Pub/Sub interface wrapped in a singleton
 
 ## Features
 - Super tiny (~210b g-zipped)
-- Zero dependancies
+- No dependencies
 - Small API with method chaining
 - Singleton impletation for usage in large applications
 - Create multiple functions for a single event
