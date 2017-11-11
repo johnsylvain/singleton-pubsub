@@ -1,4 +1,6 @@
 # Singleton Pubsub
+[![Travis](https://img.shields.io/travis/johnsylvain/singleton-pubsub.svg)](https://travis-ci.org/johnsylvain/singleton-pubsub)
+[![npm](https://img.shields.io/npm/v/singleton-pubsub.svg)](https://npmjs.org/package/singleton-pubsub)
 > A performant Pub/Sub interface wrapped in a singleton
 
 ## Features
