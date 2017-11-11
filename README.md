@@ -7,7 +7,7 @@
 ## Features
 - Super tiny (~210b g-zipped)
 - Zero dependancies
-- Small API
+- Small API with method chaining
 - Singleton impletation for usage in large applications
 - Create multiple functions for a single event
 
