@@ -1,7 +1,7 @@
 {
   "name": "singleton-pubsub",
-  "version": "0.0.1",
-  "description": "Simple pub/sub interface wrapped in a singleton",
+  "version": "0.0.2",
+  "description": "A performant pub/sub interface wrapped in a singleton",
   "main": "index.js",
   "repository": "https://github.com/johnsylvain/singleton-pubsub.git",
   "author": "john.n.sylvain@gmail.com",
