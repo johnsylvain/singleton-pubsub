@@ -63,7 +63,20 @@ describe('SingletonPubsub', function() {
                     message: 'an event fired',
                     alert: 'alert!'
                 })
-        })
+        });
+
+        it('should remove event handelers', () => {
+            const onFoo = (data) => {
+                console.log(data)
+            }
+
+            this.pubsub
+                .on('event', onFoo)
+                .off('event', onFoo);
+            
+            const length = this.pubsub.events['event'].length;
+            expect(length).toBe(0)
+        });
     });
 
 });

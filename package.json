@@ -13,7 +13,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "300 B"
+      "limit": "250 B"
     }
   ],
   "devDependencies": {

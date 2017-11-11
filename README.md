@@ -4,15 +4,13 @@
 > A performant Pub/Sub interface wrapped in a singleton
 
 ## Features
-- Super tiny (< 300 bytes g-zipped)
+- Super tiny (~210b g-zipped)
 - Zero dependancies
-- Simple API
+- Small API
 - Singleton impletation for usage in large applications
 - Create multiple functions for a single event
 
-## Usage
-
-### Installation
+## Installation
 ```bash
 # via yarn
 yarn add singleton-pubsub
@@ -25,7 +23,7 @@ npm install singleton-pubsub --save
 <script src="path/to/singleton-pubsub.js"></script>
 ```
 
-### API Usage
+## Usage
 ```js
 import SingletonPubsub from 'singleton-pubsub'
 
@@ -47,10 +45,11 @@ pubsub
   })
 
 // Unsubscribe from an event
+const onEvent = (data) => console.log(data)
+
 pubsub
-  .off('event', (data) => {
-    console.log(data)
-  })
+  .on('event', onEvent)
+  .off('event', onEvent)
 
 // Creating a new instance will give access to the same events
 const pubsub2 = new SingletonPubsub()

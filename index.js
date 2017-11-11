@@ -15,7 +15,6 @@
   var instance;
 
   var SingletonPubsub = function (options) {
-    // set options
     var reinstantiate = options && options.reinstantiate || false;
 
     if (typeof instance === 'object' && !reinstantiate) {
@@ -29,34 +28,22 @@
     return instance;
   }
 
-  SingletonPubsub.prototype.on = function (eventName, fn) {
-    this.events[eventName] = this.events[eventName] || [];
-    this.events[eventName].push(fn);
+  SingletonPubsub.prototype.on = function (name, fn) {
+    (this.events[name] || (this.events[name] = [])).push(fn)
 
     return this;
   }
 
-  SingletonPubsub.prototype.off = function (eventName, fn) {
-    if (this.events[eventName]) {
-      for (var i = 0; i < this.events[eventName].length; i++) {
-        if (this.events[eventName][i] === fn) {
-          this.events = this.events[eventName].slice(i, 1);
-          break;
-        }
-      };
-    }
+  SingletonPubsub.prototype.off = function (name, fn) {
+    this.events[name].splice(this.events[name].indexOf(fn) >>> 0, 1);
 
     return this;
   }
 
-  SingletonPubsub.prototype.emit = function (eventName, data, context) {
+  SingletonPubsub.prototype.emit = function (name, data, context) {
     context = context || undefined;
 
-    if (this.events[eventName]) {
-      this.events[eventName].forEach(function (fn) {
-        fn.call(context, data);
-      });
-    }
+    (this.events[name] || []).map(function(fn) { fn.call(context, data) })
 
     return this;
   }
