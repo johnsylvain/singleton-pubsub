@@ -1,6 +1,7 @@
 # Singleton Pubsub
 [![Travis](https://img.shields.io/travis/johnsylvain/singleton-pubsub.svg)](https://travis-ci.org/johnsylvain/singleton-pubsub)
 [![npm](https://img.shields.io/npm/v/singleton-pubsub.svg)](https://npmjs.org/package/singleton-pubsub)
+![dependancies](https://img.shields.io/badge/dependancies-zero-brightgreen.svg)
 > A performant Pub/Sub interface wrapped in a singleton
 
 ## Features
@@ -71,4 +72,4 @@ const cleanPubsub = new SingletonPubsub({
 You can request a new feature by submitting an issue. If you would like to implement a new feature feel free to issue a Pull Request.
 
 ## License
-singleton-pubsub is protected under the [MIT License](https://choosealicense.com/licenses/mit/)
+singleton-pubsub is protected under the [MIT License](https://github.com/johnsylvain/singleton-pubsub/blob/master/LICENSE)
