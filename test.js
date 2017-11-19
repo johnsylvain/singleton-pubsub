@@ -3,7 +3,7 @@ import SingletonPubsub from './index';
 describe('SingletonPubsub', function() {
 
     beforeEach(() => {
-        this.pubsub = new SingletonPubsub({
+        this.pubsub = new SingletonPubsub('__1__', {
             reinstantiate: true
         });
     });
@@ -14,18 +14,25 @@ describe('SingletonPubsub', function() {
         });
     
         it('should always return the same instance', () => {
-            const newInstance = new SingletonPubsub();
+            const newInstance = new SingletonPubsub('__1__');
     
             expect(this.pubsub).toBe(newInstance);
         });
 
-        it ('should return the same instance with same events', () => {
+        it('should return the same instance with same events', () => {
             this.pubsub
                 .on('event', () => {});
 
-            const newInstance = new SingletonPubsub();
+            const newInstance = new SingletonPubsub('__1__');
 
             expect(this.pubsub.events).toBe(newInstance.events);
+        })
+
+        it('should return default instance if no name provided', () => {
+            const defaultInstance = new SingletonPubsub()
+            const duplicateInstance = new SingletonPubsub()
+
+            expect(defaultInstance).toBe(duplicateInstance)
         })
     });
 

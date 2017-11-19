@@ -12,20 +12,21 @@
   }
 })('SingletonPubsub', this, function () {
 
-  var instance;
+  var instance = {};
 
-  var SingletonPubsub = function (options) {
-    var reinstantiate = options && options.reinstantiate || false;
+  var SingletonPubsub = function (name, options) {
+    name = name || '__default__'
+    var reinstantiate = options && options.reinstantiate || false
 
-    if (typeof instance === 'object' && !reinstantiate) {
-      return instance;
+    if (typeof instance[name] === 'object' && !reinstantiate) {
+      return instance[name]
     }
-
-    instance = this;
-
+    
+    instance[name] = this
+    
     this.events = {};
 
-    return instance;
+    return instance[name];
   }
 
   SingletonPubsub.prototype.on = function (name, fn) {
