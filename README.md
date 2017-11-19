@@ -28,7 +28,11 @@ npm install singleton-pubsub --save
 ```js
 import SingletonPubsub from 'singleton-pubsub'
 
+// Instantiate a default instance
 const pubsub = new SingletonPubsub();
+
+// Instantiate a named instance
+const altPubsub = new SingletonPubsub('alternate');
 
 // Subscribe to events via handlers
 pubsub
@@ -62,7 +66,7 @@ pubsub2
 
 
 // Create a new clean instance in the same application
-const cleanPubsub = new SingletonPubsub({
+const cleanPubsub = new SingletonPubsub('instance', {
   reinstantiate: true
 })
 ```
